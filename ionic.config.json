@@ -1,0 +1,7 @@
+{
+  "name": "youTracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
