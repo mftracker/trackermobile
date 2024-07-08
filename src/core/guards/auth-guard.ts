@@ -12,11 +12,16 @@ export class AuthGuard {
   ) {}
 
   public async canActivate(): Promise<boolean> {
-    const user = await this.authService.currentUser;
-    if (user) {
-        return true;
-    }
-    this.router.navigate(['/login']);
-    return false;
+    return new Promise<boolean>(resolve => {
+      this.authService.currentUser.then(user => {
+        console.log(user);
+        if (user) {
+          resolve(true);
+          return;
+        }
+        this.router.navigate(['/login']);
+        resolve(false);
+      });
+    })
   }
 }

@@ -1,5 +1,4 @@
 import type { CapacitorConfig } from '@capacitor/cli';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 const config: CapacitorConfig = {
   appId: 'falay.you.tracker',

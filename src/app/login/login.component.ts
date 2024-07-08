@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
 
 @Component({
@@ -7,17 +8,19 @@ import { AuthService } from 'src/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    public router: Router
+  ) {
   }
 
   ngOnInit(): void {
     this.authService.getRedirectResult().then((result) => {
-
-      if (result?.user) {
-        
-      }
+      this.authService.currentUser.then(value => {
+        if (value) {
+          this.router.navigate(['home']);
+        }
+      });
     });
-    this.authService.currentUser.then(value => console.log(value))
   }
 
   public async signInWithGoogle(): Promise<void> {

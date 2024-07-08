@@ -14,12 +14,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getRedirectResult().then((result) => {
-
-      if (result?.user) {
-        
-      }
+      this.authService.currentUser.then(value => console.log(value))
     });
-    this.authService.currentUser.then(value => console.log(value))
 
   }
   

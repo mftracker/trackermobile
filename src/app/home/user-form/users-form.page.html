@@ -1,0 +1,23 @@
+<ion-toolbar>
+  <ion-menu-button></ion-menu-button>
+  <ion-label>Kullanıcı Oluştur</ion-label>
+</ion-toolbar>
+<ion-content>
+  <form [formGroup]="userForm">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Admin</ion-label>
+      <ion-toggle formControlName="isAdmin" #mytoggle class="button"></ion-toggle>
+    </ion-item>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" (click)="createUser()">
+    Kaydet
+  </ion-button>
+</ion-footer>
